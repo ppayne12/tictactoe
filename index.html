@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Bebas+Neue|Roboto|Roboto+Mono&display=swap" rel="stylesheet">
+
+
+
+    <title>Tic Tac Toe</title>
+</head>
+
+<body>
+
+    <h1>TIC TAC TOE</h1>
+
+
+    <div class="flex-container">
+        <div class="controls left">
+            <p id="playerOneName"></p>
+            <div class="score" id="playerScore"></div>
+        </div>
+
+        <div class="game-board">
+
+            <table>
+                <tr>
+                    <td id="0"></td>
+                    <td id="1"></td>
+                    <td id="2"></td>
+                </tr>
+                <tr>
+                    <td id="3"></td>
+                    <td id="4"></td>
+                    <td id="5"></td>
+                </tr>
+                <tr>
+                    <td id="6"></td>
+                    <td id="7"></td>
+                    <td id="8"></td>
+                </tr>
+            </table>
+            <div class="results"></div>
+
+
+            <div class="game-lines">
+                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%">
+                    <line x1="0" y1="0" x2="100%" y2="100%" stroke="black" stroke-width="2" class="diag1" />
+                    <line x1="0" y1="100%" x2="100%" y2="0" stroke="black" stroke-width="2" class="diag2" />
+                    <line x1="16.67%" y1="0" x2="16.67%" y2="100%" stroke="black" stroke-width="2" class="vert1" />
+                    <line x1="50%" y1="0" x2="50%" y2="100%" stroke="black" stroke-width="2" class="vert2" />
+                    <line x1="83.33%" y1="0" x2="83.33%" y2="100%" stroke="black" stroke-width="2" class="vert3" />
+                    <line x1="0" y1="16.67%" x2="100%" y2="16.67%" stroke="black" stroke-width="2" class="hor1" />
+                    <line x1="0" y1="50%" x2="100%" y2="50%" stroke="black" stroke-width="2" class="hor2" />
+                    <line x1="0" y1="83.33%" x2="100%" y2="83.33%" stroke="black" stroke-width="2" class="hor3" />
+
+
+                </svg>
+            </div>
+
+        </div>
+
+
+        <div class="controls right">
+            <p id="playerTwoName"></p>
+            <div class="score" id="computerScore"></div>
+        </div>
+
+    </div>
+
+    <div class="gameBox">
+
+    </div>
+
+    <div class="gameControls">
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#newGameModal">
+            New Game
+        </button>
+        <button type="button" class="btn btn-secondary" id="restart" disabled>
+            Restart
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="newGameModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Game Setup</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="player-one-name" class="col-form-label">Player One:</label>
+                                <input type="text" class="form-control" id="player-one-name">
+                            </div>
+                            <div class="form-group">
+
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="multi" id="single"
+                                        value="option1" checked>
+                                    <label class="form-check-label" for="single">
+                                        Single Player
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="multi" id="double"
+                                        value="option2">
+                                    <label class="form-check-label" for="double">
+                                        Multi Player
+                                    </label>
+                                </div>
+                            </div>
+                            <!-- <div class="form-group" id="diff">
+                                <label for="difficulty">Difficulty</label>
+                                <select class="form-control" id="difficulty">
+                                    <option>Easy</option>
+                                    <option>Medium</option>
+                                    <option>Hard</option>
+                                </select>
+                            </div> -->
+
+                            <div class="form-group" id="player2" style="display:none">
+                                <label for="player-two-name" class="col-form-label">Player Two:</label>
+                                <input type="text" class="form-control" id="player-two-name">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" id="play">Play Game</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        &nbsp Created by: Paul Payne <a href="https://github.com/ppayne12/" alt="github">
+            <img src="img/GitHub-Mark-32px.png" width="15px" height="15px" /></a>
+    </footer>
+
+    <script src='src/tic.js' type='application/javascript'></script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
